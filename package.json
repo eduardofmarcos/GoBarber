@@ -1,0 +1,27 @@
+{
+  "name": "gobarber",
+  "version": "1.0.0",
+  "description": "A NodeJs, ReactJS and React Native project from RocketSeat GoStack BootCamp",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "dev:debug":"nodemon --inspect src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardofmarcos/GoBarber.git"
+  },
+  "author": "Eduardo Marcos / RocketSeat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eduardofmarcos/GoBarber/issues"
+  },
+  "homepage": "https://github.com/eduardofmarcos/GoBarber#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "sucrase": "^3.12.1"
+  }
+}
