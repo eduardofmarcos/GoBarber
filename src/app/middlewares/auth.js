@@ -5,7 +5,7 @@ import authConfig from './../../config/auth';
 
 export default async (req, res, next) => {
   const authHearer = req.headers.authorization;
-  //console.log(authHearer);
+  console.log(authHearer);
 
   if (!authHearer) {
     return res.status(401).json({
