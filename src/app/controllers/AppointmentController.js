@@ -50,7 +50,7 @@ class AppoimentController {
     }
 
     const { provider_id, date } = req.body;
-    console.log(provider_id);
+    //console.log(provider_id);
     //Check if a provider_id is a true provider
     const checkProvider = await User.findOne({
       where: { id: provider_id, provider: true }
@@ -90,7 +90,7 @@ class AppoimentController {
         message: 'Appointment is not avaliable at this time!'
       });
     }
-
+    console.log(hourStart);
     const appointment = await Appointment.create({
       user_id: req.userId, // que nao é um provider
       provider_id,
@@ -121,6 +121,11 @@ class AppoimentController {
           model: User,
           as: 'provider',
           attributes: ['name', 'email']
+        },
+        {
+          model: User,
+          as: 'user',
+          attributes: ['name']
         }
       ]
     });
@@ -145,7 +150,16 @@ class AppoimentController {
     await Mail.sendMail({
       to: `${appointmentToCancel.provider.name} <${appointmentToCancel.provider.email}>`,
       subject: 'Agendamento cancelado',
-      text: 'Você tem um novo cancelamento'
+      template: 'cancelattions',
+      context: {
+        provider: appointmentToCancel.provider.name,
+        user: appointmentToCancel.user.name,
+        date: format(
+          appointmentToCancel.date,
+          "'dia' dd 'de' MMMM',' 'as' H:mm'h'",
+          { locale: pt }
+        )
+      }
     });
 
     return res.status(200).json(appointmentToCancel);
