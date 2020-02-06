@@ -3,7 +3,8 @@ import notification from './../schemas/notification';
 import User from './../models/User';
 import File from './../models/File';
 import pt from 'date-fns/locale/pt';
-import Mail from './../../lib/Mail';
+import Queue from './../../lib/Queue';
+import CancellationMail from './../jobs/CancellationMail';
 import { startOfHour, parseISO, isBefore, format, subHours } from 'date-fns';
 import * as Yup from 'yup';
 
@@ -15,7 +16,7 @@ class AppoimentController {
     const appointments = await Appointment.findAll({
       where: { user_id: req.userId, canceled_at: null },
       order: ['date'],
-      attributes: ['id', 'date'],
+      attributes: ['id', 'date', 'past', 'cancelable'],
       limit: 20,
       offset: (page - 1) * 20,
       include: [
@@ -147,19 +148,8 @@ class AppoimentController {
 
     await appointmentToCancel.save();
 
-    await Mail.sendMail({
-      to: `${appointmentToCancel.provider.name} <${appointmentToCancel.provider.email}>`,
-      subject: 'Agendamento cancelado',
-      template: 'cancelattions',
-      context: {
-        provider: appointmentToCancel.provider.name,
-        user: appointmentToCancel.user.name,
-        date: format(
-          appointmentToCancel.date,
-          "'dia' dd 'de' MMMM',' 'as' H:mm'h'",
-          { locale: pt }
-        )
-      }
+    Queue.add(CancellationMail.key, {
+      appointmentToCancel
     });
 
     return res.status(200).json(appointmentToCancel);
