@@ -1,7 +1,7 @@
 # GoBarber
 A NodeJs API project of a Barber Shop from RocketSeat GoStack BootCamp 
 
-## Built with:
+### Built with:
 
     "@sentry/node": "^5.12.2",
     "bcryptjs": "^2.4.3",
