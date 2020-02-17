@@ -3,9 +3,9 @@ A NodeJS API project of a Barber Shop from RocketSeat GoStack BootCamp
 
 ### Built with:
 
-     *docker
-     *mongoDB
-     *postgres
+     * docker
+     * mongoDB
+     * postgres
 
     "@sentry/node": "^5.12.2",
     "bcryptjs": "^2.4.3",
