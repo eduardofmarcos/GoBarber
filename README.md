@@ -29,4 +29,8 @@ A NodeJS API project of a Barber Shop from RocketSeat GoStack BootCamp
     "yup": "^0.28.1"
     
 ### How to run:
-npm run dev
+
+    "dev": "nodemon src/server.js",
+    "queue": "nodemon src/queue.js", //email queue running parallel with the main app
+    "dev:debug": "nodemon --inspect src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
