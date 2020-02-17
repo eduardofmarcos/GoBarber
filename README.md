@@ -1,5 +1,5 @@
 # GoBarber
-A NodeJs API project of a Barber Shop from RocketSeat GoStack BootCamp 
+A NodeJS API project of a Barber Shop from RocketSeat GoStack BootCamp 
 
 ### Built with:
 
@@ -21,3 +21,6 @@ A NodeJs API project of a Barber Shop from RocketSeat GoStack BootCamp
     "sequelize": "^5.21.3",
     "youch": "^2.0.10",
     "yup": "^0.28.1"
+    
+### How to run:
+npm run dev
