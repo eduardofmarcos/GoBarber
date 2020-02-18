@@ -2,7 +2,7 @@
 
 A Node.js API project of a Barber Shop from RocketSeat GoStack BootCamp 
 
-###Features:
+### Features:
 
 CRUD operations on:
 
