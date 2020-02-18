@@ -1,11 +1,27 @@
 # GoBarber
-A NodeJS API project of a Barber Shop from RocketSeat GoStack BootCamp 
+
+A Node.js API project of a Barber Shop from RocketSeat GoStack BootCamp 
+
+###Features:
+
+CRUD operations on:
+
+* Register Users
+* Register Providers
+* Register Apointments
+* Register Schedules
+* Log in sessions using token JWT
+* Uploading files using Multer and FileSystem
+* Sending notifications to providers using a non-relational database MongoDB
+* Checking available schedule
+* Sendind Cancellation and New Orders e-mails to deliveryman using NodeMailer and bee-queue/Redis to gain performance
 
 ### Built with:
 
 * docker
 * mongoDB
 * postgres
+* redis:alpine
 
 ##### Dependecies:     
 
