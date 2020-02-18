@@ -14,7 +14,7 @@ CRUD operations on:
 * Uploading files using Multer and FileSystem
 * Sending notifications to providers using a non-relational database MongoDB
 * Checking available schedule
-* Sendind Cancellation and New Orders e-mails to deliveryman using NodeMailer and bee-queue/Redis to gain performance
+* Sendind Appointment cancellations e-mails to deliveryman using NodeMailer and bee-queue/Redis to gain performance
 
 ### Built with:
 
